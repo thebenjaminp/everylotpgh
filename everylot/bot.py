@@ -55,7 +55,7 @@ def main():
     # ("sv.jpg" is a dummy value, since filename is a required parameter).
     image = el.get_streetview_image(api.config['streetview'])
     media = api.media_upload('sv.jpg', file=image)
-    api.create_media_metadata(media.media_id,alt_text = 'Google streetview image of %s', el.lot.get('address'))
+    api.create_media_metadata(media.media_id,alt_text = 'Google streetview image of {}'.format(el.lot.get('address')))
 
     # compose an update with all the good parameters
     # including the media string.
